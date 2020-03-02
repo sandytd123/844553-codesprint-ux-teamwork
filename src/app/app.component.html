@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+  <div class="navbar-toggler-right">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse flex-column " id="navbar">
+    <div class="navbar-nav  w-100 px-3">
+      <img src="\assets\logo1.png" alt="logo" height="95" width="95" class="rounded-circle"><br>
+      <h2 class="personal ml-auto"><b>Personal Fitness Trainer</b></h2>
+    </div>
+    <div class="navbar-nav ml-auto w-100 bg-secondary px-3" id="navigation">
+      <ul class="nav ml-auto">
+        <li class="nav-item text-nowrap">
+          <a [routerLink]="['/home']">Home
+          </a>
+        </li>  
+        <li class="nav-item text-nowrap">
+          <a [routerLink]="['/placeappointment']">Appointment</a>
+        </li>
+        <li class="nav-item text-nowrap">
+          <a [routerLink]="['/viewappointment']">ViewAppointment</a> 
+        </li>  
+        <li class="nav-item text-nowrap">
+          <a [routerLink]="['/contactus']">ContactUs</a> 
+        </li>
+         
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/home']">
+              <span data-feather="home"></span>
+              Home <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/placeappointment']">
+              <span data-feather="file"></span>
+              Place Appointment
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/viewappointment']">
+              <span data-feather="shopping-cart"></span>
+              View Appointment
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/contactus']">
+              <span data-feather="users"></span>
+              Contact Us
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4">
+      <router-outlet></router-outlet>
+    </main>  
+  </div>
+</div>

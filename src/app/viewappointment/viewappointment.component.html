@@ -1,0 +1,27 @@
+<div><h2 style="text-align: center;">Appointments</h2></div>
+<div class="table-responsive-md">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">S.NO</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <th scope="col">Package</th>
+            <th scope="col">Trainer Preference</th>
+            <th scope="col">Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let appointment of appointments">
+            <th scope="row">{{appointment.id}}</th>
+            <td>{{appointment.firstName | uppercase}}</td>
+            <td>{{appointment.street}}</td>
+            <td>{{appointment.city}}</td>
+            <td>{{appointment.package}}</td>
+            <td>{{appointment.trainerpreference}}</td>
+            <td>{{appointment.phoneNumber}}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,24 @@
+<form ngNativeValidate>
+    <div><h1 style="text-align: center;">Contact Us</h1></div>
+    <div class="form-row">  
+        <div class="form-group col-md-6">
+            <label>Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Your Name" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Email</label>        
+            <input type="email" class="form-control" id="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Phone Number</label>        
+            <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required pattern="[0-9]{10}">
+        </div>
+        <div class="form-group col-md-6">
+            <label>City</label>
+            <input type="text" class="form-control" id="city" placeholder="City" required>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" (click)="Onsubmit()">Contact Us</button>
+</form>

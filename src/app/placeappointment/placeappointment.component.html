@@ -1,0 +1,217 @@
+<form ngNativeValidate (ngSubmit)="onSubmit()">   
+   <div><h1 style="text-align: center;">Appointment Form</h1></div>
+    <div class="form-row">
+      <label>Name</label>
+    </div>
+    <div class="form-row">  
+      <div class="form-group col-md-6">
+        <input type="text" name="fname"  class="form-control" id="firstname" placeholder="firstname" required [(ngModel)] = "appointment.firstName" [ngModelOptions]="{standalone: true}">
+        <label>firstname</label>
+      </div>
+      <div class="form-group col-md-6">        
+        <input type="text" name="lname" class="form-control" id="lastname" placeholder="lastname" required [(ngModel)] = "appointment.lastName" [ngModelOptions]="{standalone: true}">
+        <label>lastname</label>
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+          <label>Age</label>
+          <input type="number" class="form-control" id="age" placeholder="age" min="18" max="60" required [(ngModel)] = "appointment.age" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group col-md-4">
+          <label>Email</label>        
+          <input type="email" class="form-control" id="email" placeholder="example@gmail.com" 
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required [(ngModel)] = "appointment.email" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group col-md-4">
+          <label>Phone Number</label>        
+            <input type="tel" class="form-control" id="phone" pattern="[0-9]{10}" required [(ngModel)] = "appointment.phoneNumber" [ngModelOptions]="{standalone: true}">
+             </div>
+    </div>
+    <div class="form-row">
+        <fieldset class="form-group col-md-12 border p-2">
+            <legend class="col-md-2">Address</legend>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="streetaddress" placeholder="Street Address" name="streetaddress" required [(ngModel)] = "appointment.street">
+                        <label>Street Address</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="city" placeholder="City" name="city"  required [(ngModel)] = "appointment.city">
+                    <label>City</label>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="state" placeholder="State" name="State"  required [(ngModel)] = "appointment.state">
+                    <label>State</label>
+                </div>
+                <div class="form-group col-md-4">
+                    <select class="form-control" id="country" placeholder="Country" name="Country"  required [(ngModel)] = "appointment.country">
+                       <option>India</option>
+                       <option>USA</option>
+                       <option>China</option>
+                       <option>Japan</option>
+                    </select>
+                    <label>Country</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="pincode" placeholder="Pincode" name="pincode" pattern="[0-9]{6}" required [(ngModel)] = "appointment.pincode">
+                    <label>Pincode</label>
+                </div>
+            </div>        
+        </fieldset>
+    </div>
+    <div>
+        <label>Trainer Prefrence:</label>
+    </div>
+    <div class="form-group">
+        <div class="form-check form-inline">
+            <input class="form-check-input" name="trainerprefrence" type="radio" id="male" required [(ngModel)] = "appointment.trainerpreference" value="Male Trainer" (click) = "toggle('notoggle')"/>
+            <label>Male Trainer</label>
+        </div>
+        <div class="form-check form-inline">
+            <input class="form-check-input" name="trainerprefrence" type="radio" id="female" required [(ngModel)] = "appointment.trainerpreference" value="Female Trainer" (click) = "toggle('notoggle')"/>
+            <label>Female Trainer</label>
+        </div>
+        <div class="form-check form-inline">
+            <input class="form-check-input" name="trainerprefrence" type="radio" id="no"  required [(ngModel)] = "appointment.trainerpreference" value="No Preference"(click) = "toggle('notoggle')"/>
+            <label>No Preference</label>
+        </div>
+        <div class="form-check form-inline">
+            <input class="form-check-input" name="trainerprefrence" type="radio" id="trainernameradio" (click) = "toggle('trainername')"/>
+            <label>Trainer Name</label>
+            <input type="text" id="trainername" class="form-control" [disabled]="trainername">
+        </div>
+        <div class="form-check form-inline">
+            <input class="form-check-input" name="trainerprefrence" type="radio" id="otherradio" (click) = "toggle('other')"/>
+            <label>Others</label>
+            <input type="text" id="otherpreference" class="form-control" [disabled]="other">
+        </div>
+    </div>
+    <div>
+        <label>Do You Need Physiotherapist ?</label>
+    </div>
+    <div class="form-row">
+        <div class="form-group form-check form-inline col-md-2">
+            <input class="form-check-input" name="physiotherapist" type="radio" id="yes"/>
+            <label>Yes</label>
+        </div>
+        <div class="form-group form-check form-inline col-md-2">
+            <input class="form-check-input" name="physiotherapist" type="radio" id="no"/>
+            <label>No</label>
+        </div>
+    </div>
+    <div>
+        <label>Appointment:(free)</label>
+        <table class="table table-striped table-hover" border="1px" id="table">
+        	 <tr>
+						<td scope="col" style="text-align: center;">Day </td>
+						<th scope="col">7:00am to 9:00am</th>
+						<th scope="col">9:00 am to 11:00am</th>
+						<th scope="col">11:00am to 1:00pm</th>
+						<th scope="col">1:00pm to 3:00pm</th>
+						<th scope="col">3:00pm to5:00pm</th>
+					  </tr>
+					  <tr  style="text-align: center;">
+						<th scope="row"> Monday</th>
+						<td><input type="radio" id="1" name="1" value="1" required="">1</td>
+						<td><input type="radio" id="2" name="1" value="1" required="">2</td>
+						<td><input type="radio" id="3" name="1" value="1" required="">3</td>
+						<td><input type="radio" id="4" name="1" value="1" required="">4</td>
+						<td><input type="radio" id="5" name="1" value="1" required="">5</td>
+					  </tr>
+					  <tr style="text-align: center;">
+						<th scope="row"> Tuseday</th>
+						<td><input type="radio" id="6" name="1" value="1" required="">1</td>
+						<td><input type="radio" id="7" name="1" value="1" required="">2</td>
+						<td><input type="radio" id="8" name="1" value="1"required="">3</td>
+						<td><input type="radio" id="9" name="1" value="1" required="">4</td>
+						<td><input type="radio" id="10" name="1" value="1" required="">5</td>
+					  </tr>
+					  <tr style="text-align: center;">
+						<th scope="row"> Wedneseday</th>
+						<td><input type="radio" id="11" name="1" value="1" required="">1</td>
+						<td><input type="radio" id="12" name="1" value="1" required="">2</td>
+						<td><input type="radio" id="13" name="1" value="1" required="">3</td>
+						<td><input type="radio" id="14" name="1" value="1" required="">4</td>
+						<td><input type="radio" id="15" name="1" value="1" required="">5</td>
+					  </tr>
+					  <tr style="text-align: center;">
+						<th scope="row">Thursday</th>
+						<td><input type="radio" id="16" name="1" value="1" required="">1</td>
+						<td><input type="radio" id="17" name="1" value="1" required="">2</td>
+						<td><input type="radio" id="18" name="1" value="1" required="">3</td>
+						<td><input type="radio" id="19" name="1" value="1" required="">4</td>
+						<td><input type="radio" id="20" name="1" value="1" required="">5</td>
+					  </tr>
+					  <tr style="text-align: center;">
+						<th scope="row"> Friday</th>
+						<td><input type="radio" id="21" name="1" value="1" required="">1</td>
+						<td><input type="radio" id="22" name="1" value="1" required="">2</td>
+						<td><input type="radio" id="23" name="1" value="1" required="">3</td>
+						<td><input type="radio" id="24" name="1" value="1" required="">4</td>
+						<td><input type="radio" id="25" name="1" value="1" required="">5</td>
+					  </tr>
+					  <tr style="text-align: center;">
+						<th scope="row"> Saturday</th>
+						<td><input type="radio" id="26" name="1" value="1" required="">1</td>
+						<td><input type="radio" id="27" name="1" value="1" required="">2</td>
+						<td><input type="radio" id="28" name="1" value="1" required="">3</td>
+						<td><input type="radio" id="29" name="1" value="1" required="">4</td>
+						<td><input type="radio" id="30" name="1" value="1" required="">5</td>
+					  </tr>
+					  <tr style="text-align: center;">
+						<th scope="row"> sunday</th>
+						<td><input type="radio" id="31" name="1" value="1" required="">1</td>
+						<td><input type="radio" id="32" name="1" value="1" required="">2</td>
+						<td><input type="radio" id="33" name="1" value="1" required="">3</td>
+						<td><input type="radio" id="34" name="1" value="1" required="">4</td>
+						<td><input type="radio" id="35" name="1" value="1" required="">5</td>
+					  </tr>
+        </table>
+    </div>
+    <div >
+    </div>
+    <div>
+        <label>Select a Package</label>
+    </div>
+    <div class="form-group">
+        <div class="form-check form-inline">
+            <input class="form-check-input" name="package" type="radio" id="one" required [(ngModel)] = "appointment.package" value= "500" (click) = "package('500')"/>
+            <label>one time assessment only (INR 500)</label>
+        </div>
+        <div class="form-check form-inline">
+            <input class="form-check-input" name="package" type="radio" id="four" required [(ngModel)] = "appointment.package" value= "400" (click) = "package('400')"/>
+            <label>4 weekly sessions (INR 400/session)</label>
+        </div>
+        <div class="form-check form-inline">
+            <input class="form-check-input" name="package" type="radio" id="twelve" required [(ngModel)] = "appointment.package" value= "300" (click) = "package('300')"/>
+            <label>12 weekly sessions (INR 300/session)</label>
+        </div>
+        <div class="form-check form-inline">
+            <input class="form-check-input" name="package" type="radio" id="otherradio" (click) = "package('other')"/>
+            <label>Other</label>
+            <input type="text" id="otherpackage" class="form-control" [disabled]="isOtherPackage">
+            <label>Quote will be shared on call</label>
+        </div>
+    </div>
+    <div>
+        <label>Quote</label>
+    </div>
+    <div class="form-row">
+        <span class="form-group col-md-3">
+            <input type="text" id="inr" size="2" class="form-control" value="{{appointment.package}}" disabled="true">
+            <label>INR</label>
+        </span>
+        <span class="form-group col-md-3">
+            <input type="text" id="paise" size="2" class="form-control" value="00" disabled="true">
+            <label>Paise</label>
+        </span>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>    

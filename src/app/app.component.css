@@ -1,0 +1,100 @@
+
+img {
+    border-radius: 20%;
+   }
+    body {
+margin: 0;
+font-family: "Lato", sans-serif;
+}
+
+.personal{
+  color: white; 
+  align-self: center;
+}
+#navigation{
+  height: auto;
+  justify-content: center;
+}
+
+#navigation a{
+  display: block;
+  color:white;
+  padding: 16px;
+text-decoration: none;
+}
+
+#navigation a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+  }
+.navbar {
+  padding:0rem;
+  margin-bottom:2rem;
+}
+.sidebar a {
+display: block;
+color: black;
+padding: 16px;
+text-decoration: none;
+}
+
+.sidebar a.active {
+background-color: #4CAF50;
+color: white;
+}
+
+.sidebar a:hover:not(.active) {
+background-color: #555;
+color: white;
+}
+.block {
+display: block;
+width: 100%;
+border: none;
+background-color:grey;
+color: white;
+padding: 14px 28px;
+font-size: 16px;
+cursor: pointer;
+text-align: center;
+border-radius: 22px;
+}
+.block:hover {
+background-color: olive;
+color: white;
+}
+
+[role="main"] {
+  padding-top: 0px; /* Space for fixed navbar */
+}
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; 
+  padding: 150px 0 0; 
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 150px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content.*/ 
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+body {font-family: "Lato", sans-serif;}
